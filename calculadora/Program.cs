@@ -1,11 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 int operacion = -1;
 bool valido;
+int num1, num2;
+string? input1, input2, double1, double2;
+double numA, numB;
 
 do
 {
     Console.WriteLine($"Ingrese operación a realizar:");
-    Console.WriteLine($"1. Suma \n2. Resta \n3. Multiplicación \n4. División");
+    Console.WriteLine($"1. Suma \n2. Resta \n3. Multiplicación \n4. División \n0. Cerrar");
 
     string? opcion = Console.ReadLine();
     valido = int.TryParse(opcion, out operacion);
@@ -15,8 +18,7 @@ do
         Console.WriteLine($"Ingrese un número válido.");
         continue;
     }
-    int num1, num2;
-    string? input1, input2;
+    
     switch (operacion)
     {
         case 1:
@@ -53,8 +55,50 @@ do
                 Console.WriteLine("Entrada inválida.");
             }
             break;
+        case 3:
+            Console.WriteLine("Multiplicación");
+            Console.Write("Ingrese el primer número: ");
+            input1 = Console.ReadLine();
+            Console.Write("Ingrese el segundo número: ");
+            input2 = Console.ReadLine();
+
+            if (int.TryParse(input1, out num1) && int.TryParse(input2, out num2))
+            {
+                int resultado = num1 * num2;
+                Console.WriteLine($"El resultado de la multiplicación es: {resultado}");
+            }
+            else
+            {
+                Console.WriteLine("Entrada inválida.");
+            }
+            break;
+        case 4:
+            Console.WriteLine("División");
+            Console.Write("Ingrese el primer número: ");
+            double1 = Console.ReadLine();
+            Console.Write("Ingrese el segundo número: ");
+            double2 = Console.ReadLine();
+
+            if (double.TryParse(double1, out numA) && double.TryParse(double2, out numB))
+            {
+                if (numB != 0)
+                {
+                    double resultado = numA / numB;
+                    double redondeado = Math.Round(resultado, 2);
+                    Console.WriteLine($"El resultado de la división es: {redondeado}");
+                }
+                else
+                {
+                    Console.WriteLine("No se puede dividir por cero.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Entrada inválida.");
+            }
+            break;
         case 0:
-            Console.WriteLine("Cerrando consola.");
+            Console.WriteLine("Cerrando calculadora.");
             break;
     }
 } while (operacion != 0);
