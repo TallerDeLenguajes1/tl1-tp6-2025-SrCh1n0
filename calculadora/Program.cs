@@ -45,7 +45,24 @@ do
                 Console.WriteLine("Entrada inválida.");
             }
             break;
-        
+        case 3:
+            Console.WriteLine("Raiz Cuadrada");
+            Console.Write("Ingrese un número: ");
+            input = Console.ReadLine();
+
+            if (int.TryParse(input, out num)) {
+                if (num >= 0)
+                {
+                    double numero = num;
+                    double raiz = Math.Sqrt(numero);
+                    Console.WriteLine($"Raíz cuadrada: {raiz}");
+                }
+                else
+                {
+                    Console.WriteLine("Raíz cuadrada: No definida para números negativos.");
+                }
+            }
+            break;
         case 0:
             Console.WriteLine("Cerrando calculadora.");
             break;
