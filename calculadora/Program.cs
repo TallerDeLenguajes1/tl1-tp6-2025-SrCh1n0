@@ -1,6 +1,7 @@
 ﻿int operacion = -1, num, resultado ;
 bool valido;
 string? input;
+double numD;
 do
 {
     Console.WriteLine("Ingrese operación a realizar:");
@@ -50,17 +51,31 @@ do
             Console.Write("Ingrese un número: ");
             input = Console.ReadLine();
 
-            if (int.TryParse(input, out num)) {
-                if (num >= 0)
+            if (double.TryParse(input, out numD)) {
+                if (numD >= 0)
                 {
-                    double numero = num;
-                    double raiz = Math.Sqrt(numero);
+                    double raiz = Math.Sqrt(numD);
                     Console.WriteLine($"Raíz cuadrada: {raiz}");
                 }
                 else
                 {
                     Console.WriteLine("Raíz cuadrada: No definida para números negativos.");
                 }
+            }
+            break;
+        case 4:
+            Console.WriteLine("Seno");
+            Console.Write("Ingrese un ángulo en grados: ");
+            input = Console.ReadLine();
+
+            if (double.TryParse(input, out numD))
+            {
+                double seno = Math.Sin(numD);
+                Console.WriteLine($"Seno: {seno}");
+            }
+            else
+            {
+                Console.WriteLine("Entrada inválida.");
             }
             break;
         case 0:
