@@ -1,11 +1,11 @@
-﻿int operacion = -1, num, resultado ;
+﻿int operacion = -1, num, num1, num2, resultado;
 bool valido;
-string? input;
+string? input, input1, input2;
 double numD;
 do
 {
     Console.WriteLine("Ingrese operación a realizar:");
-    Console.WriteLine("1. Valor Absoluto \n2. Cuadrado \n3. Raiz Cuadrada \n4. Seno \n5. Coseno \n6.Parte Entera \n0. Salir");
+    Console.WriteLine("1. Valor Absoluto \n2. Cuadrado \n3. Raiz Cuadrada \n4. Seno \n5. Coseno \n6.Parte Entera \n7. Mayor \n8. Menor \n0. Salir");
     string? opcion = Console.ReadLine();
     valido = int.TryParse(opcion, out operacion);
     
@@ -87,6 +87,55 @@ do
             {
                 double coseno = Math.Cos(numD);
                 Console.WriteLine($"Coseno: {coseno}");
+            }
+            else
+            {
+                Console.WriteLine("Entrada inválida.");
+            }
+            break;
+        case 6:
+            Console.WriteLine("Parte Entera");
+            Console.Write("Ingrese un número: ");
+            input = Console.ReadLine();
+
+            if (double.TryParse(input, out numD))
+            {
+                double parteEntera = double.Round(numD, 0);
+                Console.WriteLine($"La parte entera es: {parteEntera}");
+            }
+            else
+            {
+                Console.WriteLine("Entrada inválida.");
+            }
+            break;
+        case 7:
+            Console.WriteLine("Maximo");
+            Console.Write("Ingrese un número: ");
+            input1 = Console.ReadLine();
+            Console.Write("Ingrese otro número: ");
+            input2 = Console.ReadLine();
+
+            if (int.TryParse(input1, out num1) && int.TryParse(input2, out num2))
+            {
+                int maximo = int.Max(num1, num2);
+                Console.WriteLine($"La parte entera es: {maximo}");
+            }
+            else
+            {
+                Console.WriteLine("Entrada inválida.");
+            }
+            break;
+        case 8:
+            Console.WriteLine("Minimo");
+            Console.Write("Ingrese un número: ");
+            input1 = Console.ReadLine();
+            Console.Write("Ingrese otro número: ");
+            input2 = Console.ReadLine();
+
+            if (int.TryParse(input1, out num1) && int.TryParse(input2, out num2))
+            {
+                int minimo = int.Min(num1, num2);
+                Console.WriteLine($"La parte entera es: {minimo}");
             }
             else
             {
