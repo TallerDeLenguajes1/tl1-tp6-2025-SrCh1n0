@@ -78,6 +78,21 @@ do
                 Console.WriteLine("Entrada inválida.");
             }
             break;
+        case 5:
+            Console.WriteLine("Coseno");
+            Console.Write("Ingrese un ángulo en grados: ");
+            input = Console.ReadLine();
+
+            if (double.TryParse(input, out numD))
+            {
+                double coseno = Math.Cos(numD);
+                Console.WriteLine($"Coseno: {coseno}");
+            }
+            else
+            {
+                Console.WriteLine("Entrada inválida.");
+            }
+            break;
         case 0:
             Console.WriteLine("Cerrando calculadora.");
             break;
