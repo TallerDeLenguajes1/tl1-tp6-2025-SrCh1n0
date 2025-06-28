@@ -1,5 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System.Text;
+﻿using System.Text;
 
 Console.WriteLine("Ingrese un numero para invertirlo: ");
 string numero = Console.ReadLine();
